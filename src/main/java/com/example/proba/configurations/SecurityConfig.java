@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -20,9 +22,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     private final CustomUserDetailsService userDetailsService;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//        http.addFilterBefore(new EncodingFilter(), ChannelProcessingFilter.class);
         http
                 .authorizeRequests()
-                .antMatchers("/", "/product/**", "/images/**", "/registration")
+                .antMatchers("/", "/product/**", "/images/**", "/registration","/infomasters")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

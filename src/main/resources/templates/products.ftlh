@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang=en">
 <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/7.css">
+    <link rel="stylesheet" href="/static/css/3.css">
     <title> Услуги </title>
 </head>
 <body>
@@ -11,10 +12,15 @@
         <div class="d-flex flex-wrap align-items-left justify-content-left justify-content-lg-start">
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <h2>Beauty</h2>
-                <li><a href="#" class="nav-link px-2 link-secondary">Главная</a></li>
                 <li><a href="/" class="nav-link px-2 link-secondary">Услуги</a></li>
                 <li><a href="/infomasters" class="nav-link px-2 link-secondary">Мастера</a></li>
-                <li><a href="#" class="nav-link px-2 link-secondary">Корзина</a></li>
+                <div class="ad">
+                    <#if user.isAdmin()>
+                        <a href="/admin" class="nav-link px-2 link-secondary text-decoration-none text-reset text-primary">
+                            Панель администратора
+                        </a>
+                    </#if>
+                </div>
             </ul>
             <div class="asa">
             <#if user.email??>
@@ -23,9 +29,7 @@
                     <input type="submit" value="Выйти"/>
                 </form>
             <#else>
-                <form action="/autorisation" method="post">
-                    <input type="submit" value="Войти"/>
-                </form>
+                <a href="/autorisation" >Войти</a>
             </#if>
             </div>
             <div class="poisk">
@@ -53,9 +57,9 @@
                             </a>
                             <p class="card-text">${product.description}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn btn-sm btn-outline-secondary">
-                                    <form action="/view" method="get">
-                                        <input type="submit" value="Оформить запись"/>
+                                <div class="df">
+                                    <button class="btn btn-secondary rounded-pill px-3" type="button" onclick="document.forms['myForm'].submit()">Оформить запись</button>
+                                    <form name="myForm" action="/view" method="get">
                                     </form>
                                 </div>
                             </div>

@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class AppointmentService {
     private final AppoinmentRepository appoinmentRepository;
-//    public List<Appointment> listAppointment(String name){
+    //    public List<Appointment> listAppointment(String name){
 //        if(name != null) return appoinmentRepository.findByName(name);
 //        return appoinmentRepository.findAll();
 //    }

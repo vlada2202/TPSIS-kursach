@@ -1,14 +1,15 @@
 package com.example.proba.repositories;
 
-import com.example.proba.models.Appointment;
-import com.example.proba.models.Masters;
+import com.example.proba.models.Master;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface MasterRepository extends JpaRepository<Masters,Long> {
-    List<Masters> findByFullname(String fullname);
+@Repository
+public interface MasterRepository extends JpaRepository<Master,Long> {
+    List<Master> findByFullName(String fullName);
 
-    //    @Query(value = "SELECT * FROM Appointment WHERE appointment = ?", nativeQuery = true)
-    Masters findAllByFullname(String fullname);
+//        @Query(value = "SELECT * FROM Appointment WHERE appointment = ?", nativeQuery = true)
+    Master findAllByFullName(String fullName);
 }
