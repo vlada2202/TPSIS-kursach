@@ -1,5 +1,6 @@
 package com.example.proba.controllers;
 import com.example.proba.models.Appointment;
+import com.example.proba.repositories.AppoinmentRepository;
 import com.example.proba.services.AppointmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,4 @@ public class AppointmentController {
         appointmentService.addToAppoinment(appointment);
         return "gg";
     }
-
-
-
 }

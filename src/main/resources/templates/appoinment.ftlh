@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="nomertel">Номер телефона</label>
-            <input type="number" class="form-control" id="nomertel" required name="nomertel">
+            <input type="text" class="form-control" id="nomertel" required name="nomertel">
         </div>
         <div class="form-group">
             <label for="date">Дата</label>
@@ -33,11 +33,6 @@
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <button type="submit" name="name" style="width: 100%" class="btn btn-dark">Оформить запись</button>
     </form>
-    <div class="ss">
-        <#if errorMessage??>
-            <h2 style="color: black">${errorMessage}</h2>
-        </#if>
-    </div>
 </div>
 </body>
 </html>

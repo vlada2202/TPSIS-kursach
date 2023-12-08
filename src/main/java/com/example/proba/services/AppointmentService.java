@@ -30,4 +30,7 @@ public class AppointmentService {
         return true;
     }
 
+    public void deleteAppointment(Long id) {
+        appoinmentRepository.deleteById(id);
+    }
 }
