@@ -3,28 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>SHOP</title>
-    <!-- Подключение файлов стилей Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .image-container img {
-            height: 237px;
-            width: auto;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/8.css">
 </head>
 <body>
 <div class="image-container">
     <div class="container">
-        <h1 class="mt-4">Beauty</h1>
+        <h1 class="mt-4">Авто.бу</h1>
         <hr>
         <h4>Подробная информация об услуге</h4>
         <div class="row">
@@ -42,12 +27,19 @@
                     <b>Название услуги:</b> ${product.title}<br>
                     <b>Описание:</b> ${product.description}<br>
                     <b>Цена:</b> ${product.price}<br>
-                    <b>Мастер:</b> ${product.master}<br>
+                    <b>Мастер:</b> ${product.diler}<br>
                     <#if user.isAdmin()>
+                        <div class="but">
+                            <form name="myForm" action="/edit/${product.id}" method="get">
+                                <button class="btn btn-secondary mt-3" type="submit">Редактировать услугу</button>
+                            </form>
+                        </div>
+                        <div class="buttonr">
                     <form action="/product/delete/${product.id}" method="post">
                         <input type="hidden" name="_csrf" value="${_csrf.token}" />
                         <button type="submit" class="btn btn-danger mt-3">Удалить</button>
                     </form>
+                        </div>
                     </#if>
                 </div>
             </div>

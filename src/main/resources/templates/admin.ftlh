@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title> Beauty </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/1.css">
+    <link rel="stylesheet" href="/static/css/cc/cc.css">
 </head>
 <body>
 <h4>Панель администратора</h4>
@@ -31,15 +31,14 @@
                     <input type="submit" value="Бан">
                 </form>
             </th>
-            <th><a href="/admin/user/edit/${user.id}">Редактирование</a> </th>
-            <th><a href="/user/${user.id}">Подробная информация</a></th>
+            <th><a href="/admin/user/edit/${user.id}" style="color: #61605E;">Редактирование</a></th>
+            <th><a href="/user/${user.id}" style="color: #61605E;">Подробная информация</a></th>
             <th>
                 <form action="/admin/user/delete/${user.id}" method="post">
-                    <input type="hidden" name="_csrf" value="${_csrf.token}" >
-                    <input type="submit" value="Удалить">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <button class="btn btn-primary" type="submit" style="background-color: #61605E; border-color: #61605E;">Удалить</button>
                 </form>
             </th>
-        </tr>
         <#else >
         <h3>Пользователей нет</h3>
     </#list>
@@ -47,16 +46,11 @@
 <hr>
 <div class="knop">
     <form action="/product/create" method="get" style="display: inline-block; margin-left: 10px; margin-bottom: 10px;">
-        <button class="btn btn-primary" type="submit">Добавить новую услугу</button>
+        <button class="btn btn-primary" type="submit">Добавить новый автомобиль</button>
     </form>
     <div class="fg" style="display: inline-block; margin-left: 10px;">
-        <form action="/addmaster" method="get" style="margin-bottom: 10px;">
-            <button class="btn btn-primary" type="submit">Добавить нового мастера</button>
-        </form>
-    </div>
-    <div class="fgg" style="display: inline-block; margin-left: 10px;">
-        <form action="/view/appointment" method="get" style="margin-bottom: 10px;">
-            <button class="btn btn-primary" type="submit">Просмотреть записи</button>
+        <form action="/adddiler" method="get" style="margin-bottom: 10px;">
+            <button class="btn btn-primary" type="submit">Добавить нового дилера</button>
         </form>
     </div>
 </div>
